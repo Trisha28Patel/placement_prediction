@@ -6,7 +6,7 @@ aptitude=st.slider("Aptitude Score",0,100,70)
 communication=st.slider("Communication",1,10,5)
 projects=st.slider("Projects",0,5,2)
 if st.button("Predict"):
-    url="http://127.0.0.1:5000/predict" 
+    url="https://placement-prediction-1-2amy.onrender.com/predict" 
     data={
         'cgpa':cgpa,
         'aptitude':aptitude,
@@ -16,6 +16,6 @@ if st.button("Predict"):
     response=requests.post(url,json=data)
     result =response.json()
     if result['prediction']==1:
-        st.success("you wll get placed!")
+        st.success("🎉 you wll get placed!")
     else:
         st.error("not likely to be placed")
